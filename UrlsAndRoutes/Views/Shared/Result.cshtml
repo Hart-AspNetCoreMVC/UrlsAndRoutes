@@ -1,0 +1,31 @@
+﻿
+@using UrlsAndRoutes.Models
+@model UrlsAndRoutes.Models.Result
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link asp-href-include="lib/bootstrap/dist/css/*.min.css" rel="stylesheet" />
+</head>
+<body>
+    <table>
+        <tr>
+            <td>Controller: </td>
+            <td>@Model.Controller </td>
+        </tr>
+        <tr>
+            <td>Action: </td>
+            <td>@Model.Action </td>
+        </tr>        <tr>
+            <td>ID: </td>
+            <td>@Model.Id </td>
+        </tr>
+        @foreach (string key in Model.Data.Keys)
+        {
+            <tr><td>Key</td><td>@Model.Data[key]</td></tr>
+        }
+    </table>
+
+</body>
+</html>
