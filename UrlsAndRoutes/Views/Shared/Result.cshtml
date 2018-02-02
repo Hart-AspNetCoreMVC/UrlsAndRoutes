@@ -1,6 +1,5 @@
 ﻿
-@using UrlsAndRoutes.Models
-@model UrlsAndRoutes.Models.Result
+@model Result
 
 <!DOCTYPE html>
 <html>
@@ -9,23 +8,25 @@
     <link asp-href-include="lib/bootstrap/dist/css/*.min.css" rel="stylesheet" />
 </head>
 <body>
-    <table>
-        <tr>
-            <td>Controller: </td>
-            <td>@Model.Controller </td>
-        </tr>
-        <tr>
-            <td>Action: </td>
-            <td>@Model.Action </td>
-        </tr>        <tr>
-            <td>ID: </td>
-            <td>@Model.Id </td>
-        </tr>
-        @foreach (string key in Model.Data.Keys)
-        {
-            <tr><td>Key</td><td>@Model.Data[key]</td></tr>
-        }
-    </table>
+<table class="table table-bordered table-striped table-sm">
+    <tr>
+        <th>Controller: </th>
+        <td>@Model.Controller </td>
+    </tr>
+    <tr>
+        <th>Action: </th>
+        <td>@Model.Action </td>
+    </tr>
+    @foreach (string key in Model.Data.Keys)
+    {
+        <tr><th>@key :</th><td>@Model.Data[key]</td></tr>
+    }
+@*        generates plain url outside of anchor tag(not sure of the application)*@
+        <h3>Visit this http:/@Url.Action("Index", "Home", new{id=100})</h3>
+</table>
+@*    generates /Admin route as Index is default*@
+    <a asp-action="Index" asp-controller="Admin">outgoing url</a>
+    <a asp-action="Index" asp-controller="Home" asp-route-id="hello">outgoing url </a>
 
 </body>
 </html>

@@ -14,6 +14,17 @@ namespace UrlsAndRoutes.Controllers
         // GET: /<controller>/
         public IActionResult Index(string id) =>
             View("Result", new Result {Controller = nameof(HomeController), Action = nameof(Index), Id = id});
+
+        public ViewResult CustomVariable(string id)
+        {
+            Result r = new Result
+            {
+                Controller = nameof(HomeController),
+                Action = nameof(CustomVariable),
+            };
+            r.Data["Id"] = id ?? "no id param was given";
+            return View("Result", r);
+        }
  
     }
 }

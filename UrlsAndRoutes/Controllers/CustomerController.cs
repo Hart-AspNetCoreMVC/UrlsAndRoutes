@@ -11,8 +11,8 @@ namespace UrlsAndRoutes.Controllers
 {
     public class CustomerController : Controller
     {
-        public IActionResult Index() =>
-            View("Result", new Result { Controller = nameof(CustomerController), Action = nameof(Index) });
+        public IActionResult Index(Result result) =>
+            View("Result", result);
 
         public ViewResult List() => View("result",
             new Result {Controller = nameof(CustomerController), Action = nameof(List)});
