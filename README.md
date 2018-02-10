@@ -4,4 +4,6 @@ prjects and playground to explore Asp.Net Core MVC routing using both the conven
 Exlplores the creation of complex routing patterns as well as dynamic url generation in Views for links and references to
 other parts of the progam.
 
-For conventional mapping -- check out the startup file with comments on what route a URL would map to.
+For conventional routing -- check out the startup file with comments on each  route that describe what the expectations are.
+
+For examples of using tag Helpers in views that generate outgoing URLs -- see the comments on the Views.
